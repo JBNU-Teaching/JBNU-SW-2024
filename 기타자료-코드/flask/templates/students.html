@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+  </head>
+  <body>
+    <h1>Students</h1>
+    <ul>
+      {% for student in students %}
+        <li>{{ student.name }}</li>
+      {% endfor %}
+    </ul>
+    <form action="/add" method="post">
+      <input type="text" name="name" placeholder="New Student">
+      <input type="submit" value="Add">
+    </form>
+  </body>
+</html>

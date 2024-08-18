@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <p>Posted by {{ post.author.username }} on {{ post.date_posted.strftime('%Y-%m-%d') }}</p>
+    {% if post.author == current_user %}
+        <a href="{{ url_for('update_post', post_id=post.id) }}">Edit</a>
+        <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST" style="display:inline;">
+            <input type="submit" value="Delete">
+        </form>
+    {% endif %}
+{% endblock %}
